@@ -103,7 +103,7 @@ namespace SampleApp
                 {
                     Name = item.full_name,
                     Description = item.description,
-                    Url = item.url,
+                    Url = item.html_url,
                     Owner = item.owner.login,
                     Stars = item.stargazers_count,
                     Language = item.language,
