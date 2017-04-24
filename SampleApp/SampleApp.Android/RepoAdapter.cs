@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Views;
 using Android.Widget;
@@ -7,6 +8,16 @@ using FFImageLoading.Views;
 
 namespace SampleApp.Droid
 {
+    class OnclickListener : Java.Lang.Object, View.IOnClickListener
+    {
+        public void OnClick(View v)
+        {
+            HandleOnClick();
+        }
+        public Action HandleOnClick { get; set; }
+    }
+
+
     class RepoAdapter : BaseAdapter<Repo>
     {
 
@@ -46,16 +57,24 @@ namespace SampleApp.Droid
                 holder.DescrTextView = view.FindViewById<TextView>(Resource.Id.descrTextView);
                 holder.OwnerTextView = view.FindViewById<TextView>(Resource.Id.ownerTextView);
                 holder.AvatarImageView = view.FindViewById<ImageViewAsync>(Resource.Id.avatarImageView);
+                holder.RepoItemLinearLayout = view.FindViewById<LinearLayout>(Resource.Id.repoItemLinearLayout);
                 view.Tag = holder;
             }
 
 
             //fill in your items
+            var onRepoItemClickListner = new OnclickListener();
+            onRepoItemClickListner.HandleOnClick = async () =>
+            {
+                await Util.OpenBrowser(repo.Url);
+            };
+            holder.RepoItemLinearLayout.SetOnClickListener(onRepoItemClickListner);
+
             holder.NameTextView.Text = repo.Name;
             holder.DescrTextView.Text = repo.Description;
             holder.OwnerTextView.Text = $"Language: {repo.Language} Built By: {repo.Owner} - Stars: {repo.Stars}";
             ImageService.Instance.LoadUrl(repo.AvatarUrl)
-                .LoadingPlaceholder("Icon.png")
+                //.LoadingPlaceholder("Icon.png")
                 .Retry(3, 200)
                 .DownSample(100, 100)
                 .Into(holder.AvatarImageView);
@@ -66,6 +85,7 @@ namespace SampleApp.Droid
 
     class RepoAdapterViewHolder : Java.Lang.Object
     {
+        public LinearLayout RepoItemLinearLayout { get; set; }
         public TextView NameTextView { get; set; }
         public TextView DescrTextView { get; set; }
         public TextView OwnerTextView { get; set; }
