@@ -5,6 +5,7 @@ using Android.Views;
 using Android.Widget;
 using FFImageLoading;
 using FFImageLoading.Views;
+using FFImageLoading.Transformations;
 
 namespace SampleApp.Droid
 {
@@ -75,6 +76,8 @@ namespace SampleApp.Droid
             holder.OwnerTextView.Text = $"Language: {repo.Language} Built By: {repo.Owner} - Stars: {repo.Stars}";
             ImageService.Instance.LoadUrl(repo.AvatarUrl)
                 //.LoadingPlaceholder("Icon.png")
+                .FadeAnimation(true)
+                //.Transform(new CornersTransformation(10, CornerTransformType.AllCut))
                 .Retry(3, 200)
                 .DownSample(100, 100)
                 .Into(holder.AvatarImageView);

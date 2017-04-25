@@ -13,43 +13,43 @@ namespace SampleApp
 {
     public class GitHubService
     {
-        public List<Repo> GetRepos(int days = 30)
-        {
-            var backInDays = DateTime.Now.AddDays(-days).ToString("yyyy-MM-dd");
-            List<Repo> repos = null;
-            var gitUrl = $"http://api.github.com/search/repositories?q=created:%3E={backInDays}+stars:%3E=100&sort=stars";
+        //public List<Repo> GetRepos(int days = 30)
+        //{
+        //    var backInDays = DateTime.Now.AddDays(-days).ToString("yyyy-MM-dd");
+        //    List<Repo> repos = null;
+        //    var gitUrl = $"http://api.github.com/search/repositories?q=created:%3E={backInDays}+stars:%3E=100&sort=stars";
 
-            try
-            {
-                using (var client = new HttpClient())
-                {
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    try
+        //    {
+        //        using (var client = new HttpClient())
+        //        {
+        //            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36");
-                    var response = client.GetAsync(gitUrl).Result;
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var result = response.Content.ReadAsStringAsync().Result;
-                        var rootObject = JsonConvert.DeserializeObject<RootObject>(result);
+        //            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36");
+        //            var response = client.GetAsync(gitUrl).Result;
+        //            if (response.IsSuccessStatusCode)
+        //            {
+        //                var result = response.Content.ReadAsStringAsync().Result;
+        //                var rootObject = JsonConvert.DeserializeObject<RootObject>(result);
 
-                        repos = rootObject.items.Select(i =>
-                            new Repo()
-                            {
-                                Name = i.full_name,
-                                Description = i.description,
-                                Owner = i.owner.login,
-                                AvatarUrl = i.owner.avatar_url
-                            }
-                        ).ToList();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string s = ex.Message;
-            }
-            return repos;
-        }
+        //                repos = rootObject.items.Select(i =>
+        //                    new Repo()
+        //                    {
+        //                        Name = i.full_name,
+        //                        Description = i.description,
+        //                        Owner = i.owner.login,
+        //                        AvatarUrl = i.owner.avatar_url
+        //                    }
+        //                ).ToList();
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string s = ex.Message;
+        //    }
+        //    return repos;
+        //}
 
 
         public async Task<List<Repo>> GetReposAsync(int days = 30)
