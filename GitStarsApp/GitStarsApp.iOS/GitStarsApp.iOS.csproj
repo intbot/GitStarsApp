@@ -109,7 +109,7 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleApp\GitStarsApp.csproj">
+    <ProjectReference Include="..\GitStarsApp\GitStarsApp.csproj">
       <Name>GitStarsApp</Name>
       <Project>{8B8EF493-D9E3-48F0-AA9E-22716ECC3C5F}</Project>
     </ProjectReference>
