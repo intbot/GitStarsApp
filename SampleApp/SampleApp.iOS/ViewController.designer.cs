@@ -7,7 +7,7 @@ using Foundation;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace SampleApp.iOS
+namespace GitStarsApp.iOS
 {
 	[Register ("ViewController")]
 	partial class ViewController

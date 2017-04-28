@@ -1,4 +1,4 @@
-﻿namespace SampleApp
+﻿namespace GitStarsApp
 {
     public class Repo
     {

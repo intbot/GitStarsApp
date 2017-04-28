@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace SampleApp.iOS
+namespace GitStarsApp.iOS
 {
 	public class Application
 	{

@@ -3,9 +3,9 @@ using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
 
-namespace SampleApp.Droid
+namespace GitStarsApp.Droid
 {
-	[Activity (Label = "SampleApp.Android", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "Git Stars", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		int count = 1;

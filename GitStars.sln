@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Android", "SampleApp\SampleApp.Android\SampleApp.Android.csproj", "{725A6607-3661-484F-92F2-04F2B4962496}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitStarsApp.Android", "SampleApp\SampleApp.Android\GitStarsApp.Android.csproj", "{725A6607-3661-484F-92F2-04F2B4962496}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.iOS", "SampleApp\SampleApp.iOS\SampleApp.iOS.csproj", "{0F50D0D4-834A-4206-A43A-F4F4B3B6A739}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitStarsApp.iOS", "SampleApp\SampleApp.iOS\GitStarsApp.iOS.csproj", "{0F50D0D4-834A-4206-A43A-F4F4B3B6A739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp\SampleApp.csproj", "{8B8EF493-D9E3-48F0-AA9E-22716ECC3C5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitStarsApp", "SampleApp\SampleApp\GitStarsApp.csproj", "{8B8EF493-D9E3-48F0-AA9E-22716ECC3C5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

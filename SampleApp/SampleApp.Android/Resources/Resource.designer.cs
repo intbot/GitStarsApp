@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("SampleApp.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("GitStarsApp.Droid.Resource", IsApplication=true)]
 
-namespace SampleApp.Droid
+namespace GitStarsApp.Droid
 {
 	
 	
@@ -26,8 +26,8 @@ namespace SampleApp.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::PCLStorage.Resource.String.ApplicationName = global::SampleApp.Droid.Resource.String.ApplicationName;
-			global::PCLStorage.Resource.String.Hello = global::SampleApp.Droid.Resource.String.Hello;
+			global::PCLStorage.Resource.String.ApplicationName = global::GitStarsApp.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::GitStarsApp.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

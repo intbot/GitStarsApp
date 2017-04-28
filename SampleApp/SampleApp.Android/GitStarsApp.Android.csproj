@@ -7,7 +7,7 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{725A6607-3661-484F-92F2-04F2B4962496}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SampleApp.Droid</RootNamespace>
+    <RootNamespace>GitStarsApp.Droid</RootNamespace>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -15,7 +15,7 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
-    <AssemblyName>SampleApp.Android</AssemblyName>
+    <AssemblyName>GitStarsApp.Android</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -115,8 +115,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleApp\SampleApp.csproj">
-      <Name>SampleApp</Name>
+    <ProjectReference Include="..\SampleApp\GitStarsApp.csproj">
+      <Name>GitStarsApp</Name>
+      <Project>{8B8EF493-D9E3-48F0-AA9E-22716ECC3C5F}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

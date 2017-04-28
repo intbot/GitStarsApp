@@ -2,7 +2,7 @@
 
 using UIKit;
 
-namespace SampleApp.iOS
+namespace GitStarsApp.iOS
 {
 	public partial class ViewController : UIViewController
 	{

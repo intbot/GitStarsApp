@@ -7,7 +7,7 @@ using FFImageLoading;
 using FFImageLoading.Views;
 using FFImageLoading.Transformations;
 
-namespace SampleApp.Droid
+namespace GitStarsApp.Droid
 {
     class OnclickListener : Java.Lang.Object, View.IOnClickListener
     {
@@ -67,7 +67,10 @@ namespace SampleApp.Droid
             var onRepoItemClickListner = new OnclickListener();
             onRepoItemClickListner.HandleOnClick = async () =>
             {
-                await Util.OpenBrowser(repo.Url);
+                // TODO: This is not working because of a bug in share plugin. The bug is raised by me here:
+                // Though James said it is fixed with 6.0 beta, it seems to be not.
+                // https://github.com/jguertl/SharePlugin/issues/41
+                //await Util.OpenBrowser(repo.Url);
             };
             holder.RepoItemLinearLayout.SetOnClickListener(onRepoItemClickListner);
 

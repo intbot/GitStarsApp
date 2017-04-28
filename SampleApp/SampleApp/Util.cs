@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleApp
+namespace GitStarsApp
 {
     public class Util
     {

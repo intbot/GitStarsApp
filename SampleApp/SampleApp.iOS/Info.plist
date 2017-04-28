@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>SampleApp.iOS</string>
+	<string>GitStarsApp.iOS</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.SampleApp.iOS</string>
+	<string>com.your-company.GitStarsApp.iOS</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

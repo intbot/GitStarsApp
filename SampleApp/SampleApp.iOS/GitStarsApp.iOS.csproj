@@ -6,9 +6,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{0F50D0D4-834A-4206-A43A-F4F4B3B6A739}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SampleApp.iOS</RootNamespace>
+    <RootNamespace>GitStarsApp.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SampleApp.iOS</AssemblyName>
+    <AssemblyName>GitStarsApp.iOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,7 +58,9 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchProfiling>true</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchDebug>true</MtouchDebug>
+    <MtouchDebug>True</MtouchDebug>
+    <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
+    <IOSDebuggerPort>10000</IOSDebuggerPort>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -107,8 +109,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleApp\SampleApp.csproj">
-      <Name>SampleApp</Name>
+    <ProjectReference Include="..\SampleApp\GitStarsApp.csproj">
+      <Name>GitStarsApp</Name>
+      <Project>{8B8EF493-D9E3-48F0-AA9E-22716ECC3C5F}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
