@@ -51,7 +51,8 @@ namespace GitStarsApp
         //    return repos;
         //}
 
-
+        
+        // Let's go async. The beauty of .NET. Eases on the UI when fetching data over network. No more UI freezing.
         public async Task<List<Repo>> GetReposAsync(int days = 30)
         {
             List<Repo> repos = null;
@@ -73,6 +74,10 @@ namespace GitStarsApp
                         {
                             var result = await response.Content.ReadAsStringAsync();
                             repos = ParseRepos(result);
+
+                            // GitHub api lets you read only 30 at a time. So we may have to add some paging options here. Fetch more on demand
+                            // https://developer.github.com/v3/
+                            // Look under pagination header
 
                             var file = await localFolder.CreateFileAsync($"repo_{days}.json", CreationCollisionOption.ReplaceExisting);
                             await file.WriteAllTextAsync(result);
@@ -110,100 +115,5 @@ namespace GitStarsApp
                     AvatarUrl = item.owner.avatar_url
                 }).ToList();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public async Task<List<Repo>> GetAllRepos(int days = 30)
-        {
-            var repos = new List<Repo>();
-            var daysBack = DateTime.Now.AddDays(-days).ToString("yyyy-MM-dd");
-            string url = $"https://api.github.com/search/repositories?q=created:%3E={daysBack}+stars:%3E=100&sort=stars";
-
-            try
-            {
-                var localStorage = FileSystem.Current.LocalStorage;
-                var localFolder = await localStorage.CreateFolderAsync("GitStars", CreationCollisionOption.OpenIfExists);
-
-                if (CrossConnectivity.Current.IsConnected)
-                {
-                    using (var client = new HttpClient(new NativeMessageHandler()))
-                    {
-                        var response = await client.GetAsync(url);
-                        if (response.IsSuccessStatusCode)
-                        {
-                            var result = await response.Content.ReadAsStringAsync();
-
-                            repos = ParseRepos1(result);
-                           
-                            var file = await localFolder.CreateFileAsync($"gitstars_{days}.json", CreationCollisionOption.ReplaceExisting);
-                            await file.WriteAllTextAsync(result);
-                        }
-                    }
-                }
-                else
-                {
-                    var file = await localFolder.GetFileAsync($"gitstars_{days}.json");
-                    var result = await file.ReadAllTextAsync();
-
-                    var root = JsonConvert.DeserializeObject<RootObject>(result);
-                    repos = ParseRepos1(result);
-                }
-            }
-            catch (Exception ex)
-            {
-                string s = ex.Message;
-            }
-
-            return repos;
-        }
-
-        private List<Repo> ParseRepos1(string reposAsText)
-        {
-            var root = JsonConvert.DeserializeObject<RootObject>(reposAsText);
-
-            return root.items.Select(item =>
-                new Repo()
-                {
-                    Name = item.full_name,
-                    Description = item.description,
-                    Language = item.language,
-                    Url = item.html_url,
-                    Stars = item.stargazers_count,
-                    Owner = item.owner.login,
-                    AvatarUrl = item.owner.avatar_url
-                }
-            ).ToList();
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-   
 }

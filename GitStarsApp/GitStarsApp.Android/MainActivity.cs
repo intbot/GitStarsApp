@@ -8,9 +8,7 @@ namespace GitStarsApp.Droid
 	[Activity (Label = "Git Stars", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
-
-        private GitHubService service = new GitHubService();
+        private GitHubService _api = new GitHubService();
 
 		protected async override void OnCreate (Bundle bundle)
 		{
@@ -19,7 +17,7 @@ namespace GitStarsApp.Droid
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-            var repos = await service.GetReposAsync();
+            var repos = await _api.GetReposAsync();
 
             var repoListView = this.FindViewById<ListView>(Resource.Id.reoListView);
             repoListView.Adapter = new RepoAdapter(this, repos);
@@ -37,7 +35,7 @@ namespace GitStarsApp.Droid
 
         private async Task UpdateList(object sender, System.EventArgs e, int days)
         {
-            var repos = await service.GetReposAsync(days);
+            var repos = await _api.GetReposAsync(days);
             var repoListView = this.FindViewById<ListView>(Resource.Id.reoListView);
             var adapter = repoListView.Adapter as RepoAdapter;
             adapter.Repos = repos;
