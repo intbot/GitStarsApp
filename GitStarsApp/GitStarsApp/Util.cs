@@ -1,4 +1,5 @@
 ﻿using Plugin.Share;
+using Plugin.Share.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,12 @@ namespace GitStarsApp
     {
         public static async Task OpenBrowser(string url)
         {
-            await CrossShare.Current.OpenBrowser(url);
+            var options = new BrowserOptions()
+            {
+                ChromeToolbarColor = new ShareColor(0, 191, 255)
+            };
+
+            await CrossShare.Current.OpenBrowser(url, options);
         }
     }
 }

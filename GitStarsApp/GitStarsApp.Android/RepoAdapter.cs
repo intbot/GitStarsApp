@@ -49,9 +49,7 @@ namespace GitStarsApp.Droid
             if (holder == null)
             {
                 holder = new RepoAdapterViewHolder();
-                //var inflater = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
-                //view = inflater.Inflate(Resource.Layout.RepoItem, parent, false);
-
+                
                 view = _context.LayoutInflater.Inflate(Resource.Layout.RepoItem, null);
                 
                 holder.NameTextView = view.FindViewById<TextView>(Resource.Id.nameTextView);
@@ -70,7 +68,7 @@ namespace GitStarsApp.Droid
                 // TODO: This is not working because of a bug in share plugin. The bug is raised by me here:
                 // Though James said it is fixed with 6.0 beta, it seems to be not.
                 // https://github.com/jguertl/SharePlugin/issues/41
-                //await Util.OpenBrowser(repo.Url);
+                await Util.OpenBrowser(repo.Url);
             };
             holder.RepoItemLinearLayout.SetOnClickListener(onRepoItemClickListner);
 
