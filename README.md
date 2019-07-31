@@ -7,7 +7,7 @@ This is a sample iOS/Android app written in C# using Xamarin to list out top git
 This app puts all the shared code into a PCL and uses json files to make the app available offline
 
 ## Uses
-Though this is a simple app, it showcases sample usage of few available Cross-platform plugings. Listed below are few.
+Though this is a simple app, it showcases sample usage of few available Cross-platform plugins. Listed below are few.
 
 PCLStorage plugin: https://github.com/dsplaisted/PCLStorage  
 Connectivity plugin: https://github.com/jamesmontemagno/ConnectivityPlugin  
